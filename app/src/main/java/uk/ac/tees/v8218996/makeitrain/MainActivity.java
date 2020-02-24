@@ -33,7 +33,6 @@ public class MainActivity extends AppCompatActivity {
         updateAmount = findViewById(R.id.textView2);
 
         mainView =  findViewById(R.id.main_view);
-
         updateAmount.setText(cur.format(amount));
 
 
@@ -41,55 +40,65 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void increaseBalance(View v){
-
         amount += 1000;
 
-        //NumberFormat format = NumberFormat.getCurrencyInstance();
+        if(amount > 20000){
+
+            bk = getResources().getColor(R.color.colorWhite);
+            updateView(Color.BLACK,bk);
+
+            amount = 0;
+            updateToast("You have become greedy...we are taking all the money; Money is the fruit of all evil. Make it rain to grow your balance.");
+        }else{
+
+            switch(amount){
+
+                case 5000: //black money
+
+                    bk = getResources().getColor(R.color.colorBlack);
+                    updateView(Color.WHITE,bk);
+
+                    updateToast("Making it rain with BLACK money");
+
+                    break;
+                case 10000: //yellow money
+                    bk = getResources().getColor(R.color.colorYellow);
+                    updateView(Color.WHITE,bk);
+
+                    updateToast("You have gotten yourself some YELLOW money");
+
+                    break;
+
+                case 15000: //pink money
+                    bk = getResources().getColor(R.color.colorAccent);
+                    updateView(Color.WHITE,bk);
+                    updateToast("Pinkish Money is stylish money");
+
+                    break;
+                case 18000: //red money
+                    bk = getResources().getColor(R.color.colorRed);
+                    updateView(Color.WHITE,bk);
+
+                    updateToast("HA! Your EYE RED  for RED MONEY!!!");
+
+                    break;
+                case 20000: //green money
+
+                    bk = getResources().getColor(R.color.colorPrimaryDark);
+                    updateView(Color.WHITE,bk);
+
+                    updateToast("IT ALL GREEN AT THE HIGHER SIDE.... GREEN money");
+
+                    break;
+
+            }
+        }
 
 
         updateAmount.setText(cur.format(amount));
 
-        switch(amount){
 
-            case 5000: //black money
 
-                 bk = getResources().getColor(R.color.colorBlack);
-                 updateView(Color.WHITE,bk);
-
-                updateToast("Making it rain with BLACK money");
-
-            break;
-            case 10000: //yellow money
-                 bk = getResources().getColor(R.color.colorYellow);
-                updateView(Color.WHITE,bk);
-
-                updateToast("You have gotten yourself some YELLOW money");
-
-                break;
-
-            case 15000: //pink money
-                bk = getResources().getColor(R.color.colorAccent);
-                updateView(Color.WHITE,bk);
-                updateToast("Pinkish Money is stylish money");
-
-                break;
-            case 18000: //red money
-                bk = getResources().getColor(R.color.colorRed);
-                updateView(Color.WHITE,bk);
-
-                updateToast("HA! Your EYE RED  for RED MONEY!!!");
-
-                break;
-            case 20000: //green money
-
-                bk = getResources().getColor(R.color.colorPrimaryDark);
-                updateView(Color.WHITE,bk);
-
-                updateToast("IT ALL GREEN AT THE HIGHER SIDE.... GREEN money");
-
-                break;
-
-        }
 
     }
 
